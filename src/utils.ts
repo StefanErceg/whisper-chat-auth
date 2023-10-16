@@ -16,4 +16,5 @@ export const accessTokenCookieOptions: CookieOptions = {
 	maxAge: +tokenExpiration * 60 * 1000,
 	httpOnly: true,
 	sameSite: 'lax',
+	secure: true,
 };

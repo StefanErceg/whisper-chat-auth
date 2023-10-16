@@ -59,6 +59,8 @@ router.post('/signup', async (req, res, next) => {
 
 		if (!name || !email || !password) return res.status(BAD_REQUEST).send('Name, email and password are required fields!');
 
+		if (password.length < 8) return res.status(BAD_REQUEST).send('Password must be at least 8 characters long!');
+
 		const hash = await bcrypt.hash(password, 10);
 
 		const template = `
